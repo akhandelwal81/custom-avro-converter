@@ -5,6 +5,11 @@ Key features -
   Generic Serialisation/De-serialisation of Scala Types into Avro Types and vice-versa
   Schema Generation from code at compile time
 
+## Schema
+
+Avro is a schema based format and this is one of its main differentiator with Json format. During various implementations there is always a need to define/generate schemas for the data that needs to be ingested into the application. Data is at the heart of all application implementations. Trying to generate all of these schemas manually could be a huge tedious job. In the current world where Data Model and Data Schemas are key, this functionality enables the developer community to generate schemas directly using Scala Case Classes construct and that too at compile time using macros.
+This in nutshell becomes very powerful when it comes to the ease of code generation without expliciting running a specific step as well as bypass the challenge in terms of performance if its done using reflection at runtime.
+
 ## Overriding a Schema
 AvroSchema uses an implicit SchemaFor. This is the core typeclass which helps to generate an Avro Schemafor a given Scala Type. A similar implementation can be done for a Java Type as well.
 There are SchemaFor instances for all the common JDK and SDK Types.
