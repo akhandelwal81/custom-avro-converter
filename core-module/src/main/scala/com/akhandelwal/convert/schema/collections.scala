@@ -1,4 +1,4 @@
-package com.akhandelwal.convert.schemas
+package com.akhandelwal.convert.schema
 
 import com.akhandelwal.convert.{DefaultFieldMapper, FieldMapper, SchemaFor}
 import org.apache.avro.{Schema, SchemaBuilder}

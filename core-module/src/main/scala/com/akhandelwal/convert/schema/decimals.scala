@@ -1,4 +1,4 @@
-package com.akhandelwal.convert
+package com.akhandelwal.convert.schema
 import org.apache.avro.{LogicalTypes, Schema, SchemaBuilder}
 
 case class ScalePrecision(scale: Int, precision: Int)
