@@ -11,9 +11,10 @@ Avro is a schema based format and this is one of its main differentiator with Js
 This in nutshell becomes very powerful when it comes to the ease of code generation without expliciting running a specific step as well as bypass the challenge in terms of performance if its done using reflection at runtime.
 
 Sample Implementation:
+```
 case class Employee(firstname: String,lastname: String, salary: Double, address: String)
 case class Organisation(name: String, department: String, departmentId: Int)
-
+```
 In order to generate an Avro Schema, only thing required is to use AvroSchema object that is passed to the target type as a type parameter. This returns an org.apache.avro.Schema instance.
 
 
@@ -23,8 +24,10 @@ AvroSchema uses an implicit SchemaFor. This is the core typeclass which helps to
 There are SchemaFor instances for all the common JDK and SDK Types.
 For overriding a schema for a particular type, there is a need to bring into scope an implicit SchemaFor for the type that needs to be overridden.
 In order to achive this, a new instance of SchemaFor can be used and once its put into scope, it can generate the schema.
-
+```
 implicit val floatOverride = SchemaFor [FLOAT](SchemaBuilder.builder.stringType)
 
 case class X(f:float)
 val schema =AvroSchema[X]
+
+```
