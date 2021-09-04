@@ -13,9 +13,65 @@ This in nutshell becomes very powerful when it comes to the ease of code generat
 Sample Implementation:
 ```
 case class Employee(firstname: String,lastname: String, salary: Double, address: String)
-case class Organisation(name: String, department: String, departmentId: Int)
+case class Organisation(name: String, department: String, departmentId: Int, employees: Seq[Employee])
 ```
 In order to generate an Avro Schema, only thing required is to use AvroSchema object that is passed to the target type as a type parameter. This returns an org.apache.avro.Schema instance.
+
+```
+import com.akhandelwal
+val schema = AvroSchema[Orgsanisation]
+```
+Generated Schema:
+```
+{
+   "type":"record",
+   "name":"Organisation",
+   "namespace":"com.akhandelwal",
+   "fields":[
+      {
+         "name":"name",
+         "type":"string"
+      },
+      {
+         "name":"department",
+         "type":"string"
+      },
+      {
+         "name":""departmentId,
+         "type":"integer"
+      },
+      {
+         "name":"employees",
+         "type":{
+            "type":"array",
+            "items":{
+               "type":"record",
+               "name":"Employee",
+               "fields":[
+                  {
+                     "name":"firstname",
+                     "type":"string"
+                  },
+                  {
+                     "name":"lastname",
+                     "type":"string"
+                  },
+                  {
+                     "name":"salary",
+                     "type":"double"
+                  },
+                  {
+                     "name":"adress",
+                     "type":"string"
+                  },
+               ]
+            }
+         }
+      }
+   ]
+}
+
+```
 
 
 
