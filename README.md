@@ -87,3 +87,61 @@ case class X(f:float)
 val schema =AvroSchema[X]
 
 ```
+## Overriding - Name of the field in the data
+AvroName annotation can be used to override the name of the fields . This is quite helpful when at the time of data ingestion , there is a need to standardise the specific attributes across multiple types of datasets.
+```
+package com.akhandelwal
+case class X(p: String, @AveroName("t") q: String)
+```
+Schema would be generated as below:
+```
+{
+  "type":"record",
+  "name":"X",
+  "namespace":"com.akhandelwal",
+  "fields":[
+    {
+      "name":"p",
+      "type":"string"
+    },
+    {
+      "name":"t",
+      "type":"string"
+    }    
+  ]
+}
+```
+
+## How to add properties and documentation reference to Schemas
+
+There is a doc field supported by Avro which allows to add arbitrary key-values to the schema that gets generated at compile time. This library uses AvroDoc and AvroProp as annotations to support similar functionality
+```
+package com.akhandelwal
+@AvroDoc("Department ID is the unique/primary key for Departments")
+case class X(@AvroDoc("This is type converted to String from Int") str: String, @AvroDoc("This is a decimal") decimal: Decimal, int: Int)
+```
+Above is translated to-
+```
+{  
+  "type": "record",
+  "name": "X",
+  "namespace": "com.akhandelwal",
+  "doc":"Department ID is the unique/primary key for Departments",
+  "fields": [  
+    {  
+      "name": "str",
+      "type": "string",
+      "doc" : "This is type converted to String from Int"
+    },
+    {  
+      "name": "decimal",
+      "type": "decimal",
+      "doc" : "This is a decimal"
+    },
+    {  
+      "name": "int",
+      "type": "int"
+    }
+  ]
+}
+```
