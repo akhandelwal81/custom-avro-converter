@@ -145,3 +145,6 @@ Above is translated to-
   ]
 }
 ```
+# Integration with Cats
+Cats is a Library that provides abstractions for functional programming in the Scala Programming Language. The name is derived from category.
+Cats strive to provide functional programming abstractions that are core, binary compatible, modular, approachable and efficient.
