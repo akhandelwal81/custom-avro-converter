@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "Test",
+  "namespace": "com.akhandelwal.convert.schema.DecimalSchemaTest",
+  "fields": [
+    {
+      "name": "decimal",
+      "type": {
+        "type": "bytes",
+        "logicalType": "decimal",
+        "precision": 20,
+        "scale": 8
+      }
+    }
+  ]
+}

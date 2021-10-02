@@ -1,0 +1,30 @@
+{
+  "type": "record",
+  "name": "Cuppers",
+  "namespace": "com.akhandelwal.convert.schema",
+  "fields": [
+    {
+      "name": "simple",
+      "type": [
+        {
+          "type": "record",
+          "name": "yardley",
+          "fields": [
+            {
+              "name": "mickey",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "record",
+          "name": "Stephen",
+          "fields": []
+        }
+      ],
+      "default": {
+        "yardley" : "makes it easy"
+      }
+    }
+  ]
+}
